@@ -1,0 +1,26 @@
+###
+cette requete permet de creer un joueur
+###
+POST http://localhost:4000/api/player
+Content-Type: application/json
+
+{
+    "username":"satch9",
+    "password":"123456789"
+}
+
+###
+
+GET http://localhost:4000/api/player/1
+
+
+
+
+###
+POST http://localhost:4000/api/auth
+Content-Type: application/json
+
+{
+    "username":"satch9",
+    "password":"123456789"
+}
