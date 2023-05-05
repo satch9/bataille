@@ -21,8 +21,10 @@ const db = require('./config/database');
 
 console.log("db", db);
 
+
 app.use('/api/auth', require('./api/auth/auth.routes'));
 app.use('/api/player', require('./api/player/player.routes'));
+app.use('/api/register', require('./api/register/register.routes'));
 
 //console.log("socketIO", socketIO.io);
 
@@ -52,6 +54,8 @@ io.on('connection', (socket) => {
 
         // Création de la partie
         game = new Game(uuid.v4(), numCards, partyName);
+
+
 
         let joueur1 = new Player({ id: 1, username: "J1" });
         // Ajouter le joueur1 à la partie

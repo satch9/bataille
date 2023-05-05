@@ -21,7 +21,8 @@ async function authenticate(req, res) {
             }
             const payload = {
                 player: {
-                    id: row.id
+                    id: row.id,
+                    username: row.username,
                 }
             };
 
@@ -31,7 +32,7 @@ async function authenticate(req, res) {
                 { expiresIn: 3600 },
                 (err, token) => {
                     if (err) throw err;
-                    res.json({ token });
+                    res.json({ token, player: { id: row.id, username: row.username } });
                 }
             );
         });

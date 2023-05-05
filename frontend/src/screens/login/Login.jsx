@@ -1,10 +1,20 @@
 import './login.css'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { useAuthContext } from './../../context/AuthContext';
+
 
 const Login = () => {
+
+    const { login } = useAuthContext()
+
+
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
+        if ((values.username !== '' || values.username !== undefined) && (values.password !== '' || values.password !== undefined) && login(values.username, values.password)) {
+            console.log('login ok')
+        }
+
     };
     return (
         <div className="login">
@@ -56,7 +66,7 @@ const Login = () => {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Connexion
                     </Button>
-                    Ou <a href="">enregistrez-vous maintenant!</a>
+                    Ou <a href="/register">enregistrez-vous maintenant!</a>
                 </Form.Item>
             </Form>
         </div>

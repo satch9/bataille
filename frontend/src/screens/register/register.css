@@ -1,0 +1,25 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register form {
+    min-width: 600px;
+}
+
+@media screen {
+    #root {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .register form {
+        min-width: 90%;
+    }
+}

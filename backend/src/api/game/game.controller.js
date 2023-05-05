@@ -15,6 +15,8 @@ async function getGame(req, res, next) {
 }
 
 async function createGame(req, res, next) {
+    const { name, players, currentPlayer } = req.body;
+    console.log("req.body", req.body)
     try {
         const game = new Game(req.body);
         await game.save();
